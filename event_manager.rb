@@ -53,7 +53,7 @@ def print_registration_date(registration_dates)
   registration_dates.each do |date| 
     date = DateTime.strptime(date, "%m/%d/%y %H:%M")
     hours << date.hour
-    days_week << date.wday
+    days_week << date.strftime("%A")
   end
 
   # Group every hour
@@ -84,14 +84,14 @@ content.each do |row|
 
   zipcode = clean_zipcode(row[:zipcode])
 
-  legislators = legislators_by_zipcode(zipcode)
+  # legislators = legislators_by_zipcode(zipcode)
 
-  form_letter = erb_template.result(binding)
+  # form_letter = erb_template.result(binding)
 
-  save_thank_you_letters(id, form_letter)
+  # save_thank_you_letters(id, form_letter)
 
   # Iteration: Clean phone numbers
-  puts valid_phone?(row[:homephone])
+  # puts valid_phone?(row[:homephone])
 
   registration_dates << row[:regdate]
 
